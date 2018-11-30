@@ -8,15 +8,30 @@
 }
 
 .App-header {
-  background-color: teal;
+  background-color: #446cb3;
   /* min-height: 100vh; */
-  padding: 12px 0;
+  padding: 0;
+  margin: 0;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: 1.1em;
+  font-weight: bold;
   color: white;
+}
+
+.App-header h4{
+  display: line;
+  text-align:center;
+  flex-grow: 7;
+  padding-top: 3px;
+}
+
+.App-header img{
+  display: inline;
+  flex-grow: 1;
+  padding: 25px;
+  text-align:center;
 }
 
 .App-link {
@@ -47,7 +62,7 @@
     padding: 12px 0;
     display: inline;
     box-sizing: border-box;
-    background-color: #4CAF50;
+    background-color: #f9690e;
     border: none;
     color: white;
     font-size: 1em;

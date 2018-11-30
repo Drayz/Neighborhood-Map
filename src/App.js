@@ -1,24 +1,25 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
+import menu from './menu.png';
 import MapContent from "./components/MapContent";
 import Settings from "./components/Settings";
 import "./App.css";
 
 const client = "XINTEH3WSKC5FJ2WPHER3EDB2SBUGZTQ4UQFO52TVCGTRMR2";
 const secret = "I5XXOLB2Y41MRYG4UXS22V2V5VLM43GOTCU12QEBLUMOVKSH";
-const version = "20181126";
+const version = "20182611";
 
 class App extends Component {
   state = {
     lat: 40.750580,
-    lng: -73.993584,
+    lon: -73.993584,
     zoom: 13,
     allPlaces: [],
     filteredPlaces: null
   };
 
+  //credit by Doug Brown's FEND7 Neighborhood Map
   componentDidMount = () => {
-    let url = `https://api.foursquare.com/v2/venues/search?client_id=${client}&client_secret=${secret}&v=${version}&radius=5000&ll=${this.state.lat},${this.state.lon}&intent=browse&query=Food`;
+    let url = `https://api.foursquare.com/v2/venues/search?client_id=${client}&client_secret=${secret}&v=${version}&radius=5000&ll=${this.state.lat},${this.state.lon}&intent=browse&query=Sushi`;
     let headers = new Headers();
     let request = new Request(url, {
      method: 'GET',
@@ -30,7 +31,7 @@ class App extends Component {
        const allPlaces = json.response.venues;
        this.setState({
          allPlaces,
-         filtered: this.filterVenues(allPlaces, "")
+         filtered: this.filterLocals(allPlaces, "")
        });
      })
      .catch(error => {
@@ -38,7 +39,7 @@ class App extends Component {
      });
  }
 
- filterVenues = (venues, query) => {
+ filterLocals = (venues, query) => {
     // Filter locations to match query string
     return venues.filter(venue => venue.name.toLowerCase().includes(query.toLowerCase()));
   }
@@ -47,13 +48,18 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          Darius's Sushi Spots
+          <div>
+            <img src={menu} alt="menulogo" />
+          </div>
+          <h4>Darius's Sushi Spots</h4>
         </header>
         <div>
-          <Settings locations={this.state.filteredPlaces}/>
+        <Settings locations={this.state.filteredPlaces}/>
         </div>
-        <MapContent locations={this.state.allPlaces} />
-
+        <MapContent
+          locations={this.state.allPlaces}
+          venues={this.state.filteredPlaces}
+           />
       </div>
     );
   }
