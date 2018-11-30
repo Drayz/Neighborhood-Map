@@ -24,6 +24,7 @@ this will Open [http://localhost:3000](http://localhost:3000) to view it in the 
 *You will also see any lint errors in the console.
 
 ### APIs and Libraries used
-*FourSquare FetchAPI*
-*Google Map API*
-*Google-Maps-React Library*
+
+FourSquare FetchAPI<br>
+Google Map API<br>
+Google-Maps-React Library
