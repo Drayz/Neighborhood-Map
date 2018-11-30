@@ -15,11 +15,7 @@ class Settings extends Component {
           </label>
           <input type="submit" value="Submit" />
         </form>
-        <ul style={{ listStyleType: "none" }}>
-          {this.props.locations.map(location => {
-            return <li key={location.name}>{location.name}</li>;
-          })}
-        </ul>
+        
       </div>
     );
   }
