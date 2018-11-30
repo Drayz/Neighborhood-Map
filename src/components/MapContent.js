@@ -42,6 +42,7 @@ class MapContent extends Component {
               onClick={this.onMarkerClick}
               title={location.title}
               name={location.name}
+              address={location.address}
               position={location.coordinates}
             />
           );

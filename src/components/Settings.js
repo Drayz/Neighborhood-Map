@@ -4,6 +4,22 @@ class Settings extends Component {
   state: {
     query: '',
     searchResults:[]
+
+  }
+
+  //the search query is being up dated based on users input.
+  updateQuery = () => {
+
+  }
+
+  //Hides makers when user searches query
+  hideMarkers = () => {
+
+  }
+
+  //Menu icon will toogle the display when clicked on
+  toggleSearchOption = (e) => {
+    
   }
 
   render() {
