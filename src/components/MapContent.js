@@ -38,9 +38,9 @@ class MapContent extends Component {
         {this.props.locations.map(location => {
           return (
             <Marker
-              key={location.name}
+              key={location.id}
               onClick={this.onMarkerClick}
-              title={location.name}
+              title={location.title}
               name={location.name}
               position={location.coordinates}
             />

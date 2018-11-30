@@ -13,9 +13,9 @@ class Settings extends Component {
           <label>
             <input type="text" value={this.props.location} placeholder="search locations"/>
           </label>
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Find"/>
         </form>
-        
+
       </div>
     );
   }
