@@ -1,0 +1,50 @@
+[
+	{
+		"name": "Benihana",
+		"address": "47 W 56th St",
+    "city": "New York",
+		"state": "NY",
+		"zipcode": "10019",
+		"coordinates": {"lat": 40.7634546, "lng": -73.9789645}
+	},
+	{
+		"name": "Shinbashi",
+		"address": "7 E 48th St",
+    "city": "New York",
+    "state": "NY",
+		"zipcode": "10017",
+		"coordinates": {"lat": 40.756989, "lng": -73.977434}
+	},
+	{
+		"name": "Zen Ramen & Sushi",
+		"address": "150 W 36th St",
+    "city": "New York",
+    "state": "NY",
+		"zipcode": "10018",
+		"coordinates": {"lat": 40.7517676, "lng": -73.991165}
+	},
+	{
+		"name": "Penn Sushi",
+		"address": "2 Pennsylvania Plaza",
+    "city": "New York",
+    "state": "NY",
+		"zipcode": "10121",
+		"coordinates": {"lat": 40.7500759, "lng": -73.9943913}
+	},
+	{
+		"name": "LZ Sushi",
+		"address": "355 7th Ave",
+    "city": "New York",
+    "state": "NY",
+		"zipcode": "10001",
+		"coordinates": {"lat":  40.7482651, "lng": -73.994495}
+	},
+	{
+		"name": "Ootoya",
+		"address": "141 W 41st St",
+		"city": "New York",
+		"state": "NY",
+		"zipcode": "10036",
+		"coordinates": {"lat": 40.7549178, "lng": -73.988144}
+	}
+]

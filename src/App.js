@@ -1,45 +1,47 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
 import MapContent from "./components/MapContent";
-import ReactFoursquare from 'react-foursquare';
 import Settings from "./components/Settings";
-import axios from "axios";
 import "./App.css";
 
-var foursquare = require('react-foursquare')({
-  clientID: 'XINTEH3WSKC5FJ2WPHER3EDB2SBUGZTQ4UQFO52TVCGTRMR2',
-  clientSecret: 'PVLP4Q54HENAY0ZQIBIAQUOUIJLQBBD3EXZ2IOOJHZPMSQLH'
-});
-
-var params = {
-  "ll": " 40.750580, -73.993584",
-  "query": 'Sushi'
-};
+const client = "XINTEH3WSKC5FJ2WPHER3EDB2SBUGZTQ4UQFO52TVCGTRMR2";
+const secret = "I5XXOLB2Y41MRYG4UXS22V2V5VLM43GOTCU12QEBLUMOVKSH";
+const version = "20181126";
 
 class App extends Component {
   state = {
+    lat: 40.750580,
+    lng: -73.993584,
+    zoom: 13,
     allPlaces: [],
-    filteredPlaces: []
+    filteredPlaces: null
   };
 
-  componentWillMount = () => {
-    foursquare.venues.getVenues(params)
-      .then(res=> {
-        this.setState({ allPlaces: res.response.venues });
-      });
-  }
+  componentDidMount = () => {
+    let url = `https://api.foursquare.com/v2/venues/search?client_id=${client}&client_secret=${secret}&v=${version}&radius=5000&ll=${this.state.lat},${this.state.lon}&intent=browse&query=Food`;
+    let headers = new Headers();
+    let request = new Request(url, {
+     method: 'GET',
+     headers
+   });
+   fetch(request)
+     .then(response => response.json())
+     .then(json => {
+       const allPlaces = json.response.venues;
+       this.setState({
+         allPlaces,
+         filtered: this.filterVenues(allPlaces, "")
+       });
+     })
+     .catch(error => {
+       alert("FourSquare data was not able to be received");
+     });
+ }
 
-  // getLocations = () => {
-  //   const endPoint = "https://api.foursquare.com/v2/venues/search"
-  //   const parameters = {
-  //     client_id: "XINTEH3WSKC5FJ2WPHER3EDB2SBUGZTQ4UQFO52TVCGTRMR2",
-  //     client_secret: "PVLP4Q54HENAY0ZQIBIAQUOUIJLQBBD3EXZ2IOOJHZPMSQLH",
-  //     ll:
-  //     query:"sushi",
-  //     near: "New York",
-  //     v: "20182611"
-  //   }
-  // }
+ filterVenues = (venues, query) => {
+    // Filter locations to match query string
+    return venues.filter(venue => venue.name.toLowerCase().includes(query.toLowerCase()));
+  }
 
   render() {
     return (
@@ -50,7 +52,7 @@ class App extends Component {
         <div>
           <Settings locations={this.state.filteredPlaces}/>
         </div>
-        <MapContent locations={this.state.filteredPlaces} />
+        <MapContent locations={this.state.allPlaces} />
 
       </div>
     );
