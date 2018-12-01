@@ -22,13 +22,13 @@ this will Open [http://localhost:3000](http://localhost:3000) to view it in the 
 
 ## How the App works
  
-* 
+
 
 ##Third Party API and libraries
 
-Google Maps API<br>
-Foursquare API<br>
-Google-maps-react component by Fullstack React team 
+*Google Maps API<br>
+*Foursquare API<br>
+*Google-maps-react component by Fullstack React team 
 
 
 ##Service Worker
