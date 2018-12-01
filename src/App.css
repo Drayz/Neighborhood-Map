@@ -47,7 +47,31 @@
   }
 }
 
-#search-results input[type=text] {
+.App input[type=text] {
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid gray;
+    padding: 5px;
+    margin: 0;
+    text-align: center;
+    font-size: 1em;
+}
+
+.App ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background-color: #4C4A48;
+}
+
+.App ul li {
+  padding: 10px 0;
+  border-bottom: 1px solid black;
+  color: #fff;
+}
+
+/* #search-results input[type=text] {
     width: 80%;
     padding: 12px 10px;
     display: inline;
@@ -55,7 +79,7 @@
     border: none;
     text-decoration: none;
     font-size: 1em;
-}
+} */
 
 #search-results input[type=submit] {
     width: 20%;
