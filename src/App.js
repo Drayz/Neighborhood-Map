@@ -20,7 +20,6 @@ class App extends Component {
     isOpen: false
   };
 
-  //credit by Doug Brown's FEND7 Neighborhood Map
   componentDidMount = () => {
     let link = `https://api.foursquare.com/v2/venues/search?client_id=${client}&client_secret=${secret}&v=${version}&radius=5000&ll=${
       this.state.lat
