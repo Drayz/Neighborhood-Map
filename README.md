@@ -20,10 +20,6 @@ To get started running this application you will have to do the following
 
 this will Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-## How the App works
- 
-
-
 ## Third Party API and libraries
 
 Google Maps API<br>
