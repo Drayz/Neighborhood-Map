@@ -26,15 +26,15 @@ this will Open [http://localhost:3000](http://localhost:3000) to view it in the 
 
 ##Third Party API and libraries
 
-*Google Maps API<br>
-*Foursquare API<br>
-*Google-maps-react component by Fullstack React team 
+Google Maps API<br>
+Foursquare API<br>
+Google-maps-react component by Fullstack React team 
 
 
 ##Service Worker
 
-*Service workers are disabled by default during development, but building the project through `npm run build` will auto-populate a React-provided SW for the project.*
+Service workers are disabled by default during development, but building the project through `npm run build` will auto-populate a React-provided SW for the project.*
 
-*The page will reload if you make edits.<br>
-*You will also see any lint errors in the console.
+The page will reload if you make edits.<br>
+You will also see any lint errors in the console.
 
