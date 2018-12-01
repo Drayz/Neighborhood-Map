@@ -24,6 +24,7 @@ class MapContent extends Component {
       });
     }
   };
+
   render() {
     const centerPoint = { lat: 40.75058, lng: -73.993584 };
     return (
@@ -35,7 +36,7 @@ class MapContent extends Component {
         zoom={14}
         role="application"
         aria-label="map">
-        {this.props.locations.map(location => {
+        {this.props.filteredPlaces.map(location => {
           return (
             <Marker
               key={location.id}
@@ -43,7 +44,10 @@ class MapContent extends Component {
               title={location.title}
               name={location.name}
               address={location.address}
-              position={location.coordinates}
+              position={{
+                lat: location.location.lat,
+                lng: location.location.lng
+              }}
             />
           );
         })}

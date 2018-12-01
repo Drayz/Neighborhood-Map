@@ -1,37 +1,35 @@
 import React, { Component } from "react";
 
 class Settings extends Component {
-  state: {
-    query: '',
-    searchResults:[]
+  state = {
+    query: ""
+  };
 
-  }
-
-  //the search query is being up dated based on users input.
-  updateQuery = () => {
-
-  }
-
-  //Hides makers when user searches query
-  hideMarkers = () => {
-
-  }
-
-  //Menu icon will toogle the display when clicked on
-  toggleSearchOption = (e) => {
-    
-  }
+  //Ths function handles the query after user inputs a value.
+  //And updates the query of the markers to reflect the search
+  handleChange = query => {
+    this.setState(
+      {
+        query
+      },
+      () => this.props.handleQuery(query)
+    );
+  };
 
   render() {
     return (
-      <div id="search-results">
-        <form id="search">
-          <label>
-            <input type="text" value={this.props.location} placeholder="search locations"/>
-          </label>
-          <input type="submit" value="Find"/>
-        </form>
-
+      <div style={{ position: "sticky", zIndex: 9999999999, width:"100%" }}>
+        <input
+          type="text"
+          value={this.props.location}
+          placeholder="search locations"
+          onChange={e => this.handleChange(e.target.value)}
+        />
+        <ul style={{ listStyleType: "none" }}>
+          {this.props.locations.map(location => {
+            return <li key={location.id}>{location.name}</li>;
+          })}
+        </ul>
       </div>
     );
   }
