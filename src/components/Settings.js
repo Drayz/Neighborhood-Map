@@ -16,18 +16,22 @@ class Settings extends Component {
     );
   };
 
+
+
   render() {
     return (
       <div style={{ position: "sticky", zIndex: 9999999999, width:"100%" }}>
+        <label htmlFor={"search"}>Search</label>
         <input
           type="text"
           value={this.props.location}
+          name="search"
           placeholder="search locations"
           onChange={e => this.handleChange(e.target.value)}
         />
         <ul style={{ listStyleType: "none" }}>
           {this.props.locations.map(location => {
-            return <li key={location.id}>{location.name}</li>;
+            return <li onClick={this.onMarkerClick} tabIndex="0" key={location.id}>{location.name}</li>;
           })}
         </ul>
       </div>

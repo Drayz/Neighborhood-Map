@@ -43,7 +43,7 @@ class MapContent extends Component {
               onClick={this.onMarkerClick}
               title={location.title}
               name={location.name}
-              address={location.address}
+              animation={this.state.activeMarker.name === this.state.selectedPlace.name ? window.google.maps.Animation.DROP : 0}
               position={{
                 lat: location.location.lat,
                 lng: location.location.lng
