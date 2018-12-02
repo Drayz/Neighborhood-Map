@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import menu from "./menu.png";
 import MapContent from "./components/MapContent";
 import Settings from "./components/Settings";
+import ErrorBoundary from "./components/ErrorBoundary"
 import "./App.css";
 
 //Information from my Foursquare API that get passed into the `let` url
@@ -23,7 +24,7 @@ class App extends Component {
   componentDidMount = () => {
     let link = `https://api.foursquare.com/v2/venues/search?client_id=${client}&client_secret=${secret}&v=${version}&radius=5000&ll=${
       this.state.lat
-    },${this.state.lon}&intent=browse&query=Sushi`;
+    },${this.state.lon}&intent=browse&query=japanese shushi`;
     let headers = new Headers();
     let request = new Request(link, {
       method: "GET",
@@ -46,6 +47,8 @@ class App extends Component {
       });
   };
 
+  //Ths function handles the query after user inputs a value.
+  //And updates the query of the markers to reflect the search
   handleQuery = query => {
     this.setState(
       {
@@ -91,10 +94,13 @@ class App extends Component {
             />
           )}
         </div>
-        <MapContent
-          filteredPlaces={this.state.filteredPlaces}
-          onMapClicked={this.handleMapClick}
-        />
+        <ErrorBoundary render={(error) =>(<div className="error"><h1>Google Map could not be retrieved.</h1></div>)}>
+          <MapContent
+            filteredPlaces={this.state.filteredPlaces}
+            onMapClicked={this.handleMapClick}
+          />
+        </ErrorBoundary>
+
       </div>
     );
   }

@@ -47,12 +47,22 @@
   }
 }
 
+.App label {
+  background-color: #ececec;
+  width: 100%;
+  padding: 5px 0;
+  color: #555555;
+  display: block;
+  font-weight: bold;
+}
+
 .App input[type=text] {
     width: 100%;
     box-sizing: border-box;
     border: none;
     border-bottom: 1px solid gray;
-    padding: 5px;
+    background-color: #fff;
+    padding: 5px 0;
     margin: 0;
     text-align: center;
     font-size: 1em;
@@ -69,27 +79,4 @@
   padding: 10px 0;
   border-bottom: 1px solid black;
   color: #fff;
-}
-
-/* #search-results input[type=text] {
-    width: 80%;
-    padding: 12px 10px;
-    display: inline;
-    box-sizing: border-box;
-    border: none;
-    text-decoration: none;
-    font-size: 1em;
-} */
-
-#search-results input[type=submit] {
-    width: 20%;
-    padding: 12px 0;
-    display: inline;
-    box-sizing: border-box;
-    background-color: #f9690e;
-    border: none;
-    color: white;
-    font-size: 1em;
-    text-decoration: none;
-    cursor: pointer;
 }
